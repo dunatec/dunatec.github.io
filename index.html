@@ -10,9 +10,26 @@
 				color: #EEEEEE;
 				font-family: monospace;
 			}
+			a[href] {
+				color: #00FFFF;
+			}
 		</style>
+		<script>
+			function warnLink(anchorTag) {
+				return confirm(`Heads up!\nYou are about to go to a different website. The owner of this website is not responsible for the content of this other website.\n\nContinuing will redirect you to: ${anchorTag.href}`);
+			}
+		</script>
 	</head>
 	<body>
-		Hello, world!
+		<h1>welcome to my website!</h1>
+		<p>there's not much happening here right now, but i'll try to include links to cool stuff i've built</p>
+		<small style="color: grey;"><i>maybe i'll make this look nice one day</i></small>
+
+		<h2>my links</h2>
+		<a href="https://www.youtube.com/@dunatec" onclick="return warnLink(this);">youtube</a><br>
+		<a href="https://www.twitch.tv/dunatec" onclick="return warnLink(this);">twitch</a> (not streaming... yet?)<br>
+
+		<h2>my creations</h2>
+		nothing here yet!
 	</body>
 </html>
