@@ -17,3 +17,18 @@ a[href] {
 .modal::backdrop {
 	background-color: #40404080;
 }
+.vam_child > * {
+	vertical-align: middle;
+}
+details > *:not(summary) {
+	padding-left: 1em;
+}
+#footerElement {
+	position: absolute;
+	bottom: 0em;
+	left: 0em;
+	padding: 0.5em 1em;
+	border-top: 1px solid snow;
+	width: calc(100% - 2em);
+	background-color: #111111;
+}
