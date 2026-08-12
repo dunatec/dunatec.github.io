@@ -1,0 +1,19 @@
+body {
+	background-color: #111111;
+	color: #EEEEEE;
+	font-family: monospace;
+}
+a[href] {
+	color: #00FFFF;
+}
+.modal {
+	padding: 1em;
+	border-radius: 10px;
+	color: snow;
+	background-color: black;
+	border-color: grey;
+	border-width: 5px;
+}
+.modal::backdrop {
+	background-color: #40404080;
+}

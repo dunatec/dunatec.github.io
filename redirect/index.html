@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>dunatec</title>
+		<link rel="stylesheet" href="/css/site.css">
+		<script>
+			const redirectKeys = {
+				"youtube": "https://www.youtube.com/@dunatec",
+				"twitch": "https://www.twitch.tv/dunatec",
+				"github": "https://github.com/dunatec/"
+			}
+			let redirectTarget = redirectKeys[location.hash.slice(1)];
+			if (redirectTarget) {
+				window.addEventListener("DOMContentLoaded", () => {
+					urlTarget.innerText = redirectTarget;
+				});
+			} else {
+				window.addEventListener("DOMContentLoaded", () => {
+					errorPopover.showPopover();
+					providedTarget.innerText = location.hash.slice(1);
+					for (const el of document.getElementsByClassName("bg")) el.disabled = true;
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Heads up!</h1>
+		<p>You are about to go to a different website. The owner of this website is not responsible for the content of this other website.</p>
+		<p>Continuing will redirect you to: <b id="urlTarget">(If you can see this, it's because the page is still loading or because JavaScript is disabled)</b></p>
+
+		<span popover="manual" class="modal" id="errorPopover">
+			<h2>Invalid redirect target provided</h2>
+			<p>The link you followed is not a valid redirect target for this website.</p>
+			<div><small><i>Given target: <span id="providedTarget">(none)</span></i></small></div>
+			<p><button onclick="if (confirm('Go back to the last page in your history?\n(Will not work if your history is empty)')) history.back();">Go back</button></p>
+		</span>
+
+		<button class="bg" onclick="if (confirm('Go back to the last page in your history?\n(Will not work if your history is empty)')) history.back();">GO BACK</button><button class="bg" onclick="if (redirectTarget) location.replace(redirectTarget);">CONTINUE</button>
+	</body>
+</html>
